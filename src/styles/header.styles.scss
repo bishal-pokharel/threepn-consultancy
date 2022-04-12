@@ -1,0 +1,183 @@
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0;
+    padding:0;
+    background-color: #FFF;
+    box-shadow: 0px 2px 20px gray;
+    .logo_div{
+        width: 40%;
+
+        img{
+            width: 30%;
+            margin: 0% 10%;
+        }
+    }
+    .nav_menu{
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .menu{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            // justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+        .menu li{
+            // display: inline-block;
+            padding: 3%;
+            font-size: 2vh;
+
+            &:hover{
+                background-color: antiquewhite;
+                cursor: pointer;
+            }
+        }
+
+        // for hamburger making
+        .menu-button-container{
+            display: none;
+            height: 100%;
+            width: 30px;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #menu-toggle{
+            display: none;
+        }
+        .menu-button,
+        .menu-button::after,
+        .menu-button::before{
+            display: block;
+            background-color: #000;
+            position: absolute;
+            height: 6px;
+            width: 40px;
+            border-radius: 2px;
+            transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .menu-button::before{
+            content: '';
+            margin-top: -10px;
+        }
+        .menu-button::after{
+            content: '';
+            margin-top: 10px;
+        }
+        #menu-toggle:checked + .menu-button-container .menu-button::before{
+            margin-top: 0px;
+            transform: rotate(405deg);
+        }
+        #menu-toggle:checked + .menu-button-container .menu-button::after{
+            margin-top: 0px;
+            transform: rotate(-405deg);
+        }
+        #menu-toggle:checked + .menu-button-container .menu-button{
+            // background-color: transparent;
+            background: rgba(255, 255, 255, 0);
+        }
+    }
+    .menu_lang{
+        width: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span{
+            padding-left: 5%;
+            font-size: 2vmin;
+        }
+    }
+}
+.header_div{
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    z-index: -1;
+    .header_img{
+        background-image: url('../images/sivaji.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: zoomin 5s ease-in-out 5s infinite forwards alternate;
+        height: 100%;
+        color: #FFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        flex-direction: column;
+        h1,p{
+            margin: 0;
+            font-size: 5vh;
+        }
+        p{
+            font-size: 4vh;
+        }
+        @keyframes zoomin {
+            0%{
+                background-size: 100% 100%;
+            }
+            100%{
+                background-size: 130% 155%;
+            }
+            
+        }
+    }
+    
+}
+
+@media (max-aspect-ratio:4/3) {
+    .menu-button-container{
+        display: flex !important;
+    }
+    .menu{
+        position: absolute;
+        top: 0;
+        margin-top: 63px !important;
+        left: 0;
+        flex-direction: column !important;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    #menu-toggle ~ .menu li{
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        // color: transparent;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    #menu-toggle:checked ~ .menu li {
+        border: 1px solid #333;
+        height: 2.5em;
+        padding: 0.5em;
+        // z-index: 2;
+        color: white;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        
+    }
+    .menu > li {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0.5em 0;
+        width: 100%;
+        color: transparent;
+        background-color: #222;
+        // z-index: 0;
+        
+    }
+    .menu > li:not(:last-child) {
+        border-bottom: 1px solid #444;
+    }  
+}
