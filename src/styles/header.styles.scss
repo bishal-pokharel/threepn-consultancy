@@ -6,6 +6,8 @@ nav{
     padding:0;
     background-color: #FFF;
     box-shadow: 0px 2px 20px gray;
+    position: fixed;
+    width: 100%;
     .logo_div{
         width: 40%;
 
@@ -100,6 +102,7 @@ nav{
 .header_div{
     // position: absolute;
     // height: 50%;
+    padding-top: 5%;
     width: 100%;
     z-index: -1;
     .header_img{
